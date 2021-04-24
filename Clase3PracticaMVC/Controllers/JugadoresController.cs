@@ -71,18 +71,24 @@ namespace Clase3PracticaMVC.Controllers
             return View(jugSinClub);
         }
 
+        [HttpGet]
+        public IActionResult Cargar()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult Cargar(Jugador jug)
         {
-            //TODO: agregar a la lista
+            Jugadores.Add(jug);
             return View();
         }
 
+        [HttpGet]
         public IActionResult JugadoresCargados()
         {
-           //TODO: retornar lista (deberian tambien crear la vista)
-            return View();
+            List<Jugador> jugadoresCargados = Jugadores;
+            return View(jugadoresCargados);
         }
     }
 }
