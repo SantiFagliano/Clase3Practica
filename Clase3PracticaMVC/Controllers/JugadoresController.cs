@@ -81,7 +81,8 @@ namespace Clase3PracticaMVC.Controllers
         public IActionResult Cargar(Jugador jug)
         {
             Jugadores.Add(jug);
-            return View();
+
+            return View(jug);
         }
 
         [HttpGet]

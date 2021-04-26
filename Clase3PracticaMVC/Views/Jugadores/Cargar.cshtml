@@ -1,6 +1,8 @@
-﻿
+﻿@model Entidades.Jugador
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+
 }
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,12 @@
     <h1>Cargar Jugador</h1>
     <hr />
     <h5>Ingrese los datos del jugador que desea cargar:</h5>
+    @if (@Model != null)
+    {
+<div class="alert alert-success" role="alert">
+    El jugador <span class="alert-link">@Model.Nombre @Model.Apellido</span>  fue cargado correctamente en  <span class="alert-link">@Model.Club</span>!
+</div>
+    }
     <form action="/jugadores/cargar" method="post">
         <div class="mb-3">
             <label for="Nombre " class="form-label">*Nombre</label>
@@ -26,9 +34,11 @@
             <input type="text" class="form-control" id="Club" name="Club" placeholder="Escriba el Club aqui">
         </div>
         <div class="mb-3">
-            <input type="submit" name="btn btn-outline-success" value="Cargar" />
+            <input type="submit" name="btn btn-success" value="Cargar" />
         </div>
     </form>
+    <a href="/jugadores/JugadoresCargados" class="btn btn-secondary btn-lg">Ver Jugadores Cargados</a>
+
 </body>
 </html>
 
