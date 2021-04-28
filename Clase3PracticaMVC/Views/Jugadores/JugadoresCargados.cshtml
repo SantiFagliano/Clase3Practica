@@ -3,38 +3,29 @@
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
-    <!DOCTYPE html>
-
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Jugadores sin club</title>
-    </head>
-    <body>
-        <h1 class="p-5">Jugadores Cargados</h1>
+    <h1 class="p-5">Jugadores Cargados</h1>
 
 
 
-        <table class="table">
-            <thead>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Club</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Entidades.Jugador jug in Model)
+            {
                 <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Club</th>
+                    <td scope="row">@jug.Nombre</td>
+                    <td>@jug.Apellido</td>
+                    <td>@jug.Club</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (Entidades.Jugador jug in Model)
-                {
-                    <tr>
-                        <td scope="row">@jug.Nombre</td>
-                        <td>@jug.Apellido</td>
-                        <td>@jug.Club</td>
-                    </tr>
-                }
+            }
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 
-    </body>
-</html>
+
